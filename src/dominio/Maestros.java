@@ -7,7 +7,7 @@ package dominio;
 
 /**
  *
- * @author leone
+ * @author Jeff
  */
 public class Maestros {
     private String codigo;

@@ -7,7 +7,7 @@ package vista;
 
 /**
  *
- * @author leone
+ * @author Jeff
  */
 public class Ingreso_Notas extends javax.swing.JInternalFrame {
 

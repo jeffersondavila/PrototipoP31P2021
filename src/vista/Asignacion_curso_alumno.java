@@ -7,7 +7,7 @@ package vista;
 
 /**
  *
- * @author leone
+ * @author Jeff
  */
 public class Asignacion_curso_alumno extends javax.swing.JInternalFrame {
 

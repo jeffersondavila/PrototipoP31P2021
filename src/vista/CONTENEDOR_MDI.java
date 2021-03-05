@@ -9,7 +9,7 @@ import javax.swing.JDesktopPane;
 
 /**
  *
- * @author leone
+ * @author Jeff
  */
 public class CONTENEDOR_MDI extends javax.swing.JFrame {
 

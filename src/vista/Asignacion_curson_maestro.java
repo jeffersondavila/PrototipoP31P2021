@@ -7,7 +7,7 @@ package vista;
 
 /**
  *
- * @author leone
+ * @author Jeff
  */
 public class Asignacion_curson_maestro extends javax.swing.JInternalFrame {
 

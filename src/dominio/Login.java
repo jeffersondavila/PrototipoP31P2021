@@ -7,7 +7,7 @@ package dominio;
 
 /**
  *
- * @author leone
+ * @author Jeff
  */
 public class Login {
     
