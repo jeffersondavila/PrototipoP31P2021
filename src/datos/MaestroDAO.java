@@ -18,55 +18,60 @@ import java.util.List;
  * @author Jeff
  */
 public class MaestroDAO {
+
+    //Buscar en la BD
     private static final String SQL_SELECT = "SELECT codigo_maestro, nombre_maestro, direccion_maestro, telefono_maetro, email_maestro, estatus_maestro FROM maestros";
-    private static final String SQL_INSERT = "insert into maestros values(?,?,?,?,?,?)";
-    private static final String SQL_DELETE = "delete from maestros where codigo_maestro = ?";  
-    private static final String SQL_UPDATE = "UPDATE maestros SET nombre_maestro=?, direccion_maestro=?, telefono_maetro=?, email_maestro=?, estatus_maestro=? WHERE codigo_maestro=?";
-    private static final String SQL_QUERY = "SELECT codigo_maestro, nombre_maestro, direccion_maestro, telefono_maetro, email_maestro, estatus_maestro  FROM maestros WHERE codigo_maestro = ?";
-   
-    
-    public List<Maestros> select(){
+    //Insertar en la BD
+    private static final String SQL_INSERT = "INSERT INTO maestros(codigo_maestro, nombre_maestro, direccion_maestro, telefono_maetro, email_maestro, estatus_maestro) VALUES(?, ?, ?, ?, ?, ?)";
+    //Modificar la BD
+    private static final String SQL_UPDATE = "UPDATE maestros SET nombre_maestro=?, direccion_maestro=?, telefono_maetro=?, email_maestro=?, estatus_maestro WHERE codigo_maestro = ?";
+    //Eliminar de la BD
+    private static final String SQL_DELETE = "DELETE FROM maestros WHERE codigo_maestro=?";
+    //Buscar 2 en la BD
+    public static final String SQL_QUERY = "SELECT codigo_maestro, nombre_maestro, direccion_maestro, telefono_maetro, email_maestro, estatus_maestro FROM maestros WHERE codigo_maestro = ?";
+
+    public List<Maestros> select() {
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
         Maestros maestros = null;
         List<Maestros> maestro = new ArrayList<Maestros>();
-        
+
         try {
             conn = Conexion.getConnection();
             stmt = conn.prepareStatement(SQL_SELECT);
             rs = stmt.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 String codigo_maestro = rs.getString("codigo_maestro");
                 String nombre_maestro = rs.getString("nombre_maestro");
                 String direccion_maestro = rs.getString("direccion_maestro");
                 String telefono_maetro = rs.getString("telefono_maetro");
                 String email_maestro = rs.getString("email_maestro");
                 String estatus_maestro = rs.getString("estatus_maestro");
-                
+
                 maestros = new Maestros();
                 maestros.setCodigo(codigo_maestro);
                 maestros.setNombre(nombre_maestro);
-                maestros.setEstatus(direccion_maestro);
-                maestros.setCodigo(telefono_maetro);
-                maestros.setNombre(email_maestro);
+                maestros.setDireccion(direccion_maestro);
+                maestros.setTelefono(telefono_maetro);
+                maestros.setEmail(email_maestro);
                 maestros.setEstatus(estatus_maestro);
-                
+
                 maestro.add(maestros);
             }
-            
+
         } catch (SQLException ex) {
             ex.printStackTrace(System.out);
-        }
-        finally{
+        } finally {
             Conexion.close(rs);
             Conexion.close(stmt);
             Conexion.close(conn);
         }
-        
+
         return maestro;
     }
-    public int insert(Maestros maestro){
+
+    public int insert(Maestros maestro) {
         Connection conn = null;
         PreparedStatement stmt = null;
         int rows = 0;
@@ -83,18 +88,18 @@ public class MaestroDAO {
             rows = stmt.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace(System.out);
-        }
-        finally{
+        } finally {
             Conexion.close(stmt);
             Conexion.close(conn);
         }
         return rows;
     }
-    public int delete(Maestros maestro){
+
+    public int delete(Maestros maestro) {
         Connection conn = null;
         PreparedStatement stmt = null;
         int rows = 0;
-        
+
         try {
             conn = Conexion.getConnection();
             //System.out.println("Ejecutando query:" + SQL_DELETE);
@@ -103,18 +108,18 @@ public class MaestroDAO {
             rows = stmt.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace(System.out);
-        }
-        finally{
+        } finally {
             Conexion.close(stmt);
             Conexion.close(conn);
         }
         return rows;
     }
-    public int update(Maestros maestro){
+
+    public int update(Maestros maestro) {
         Connection conn = null;
         PreparedStatement stmt = null;
         int rows = 0;
-        
+
         try {
             conn = Conexion.getConnection();
             System.out.println("ejecutando query: " + SQL_UPDATE);
@@ -126,18 +131,18 @@ public class MaestroDAO {
             stmt.setString(5, maestro.getEstatus());
             stmt.setString(6, maestro.getCodigo());
             rows = stmt.executeUpdate();
-            System.out.println( stmt);
+            System.out.println(stmt);
         } catch (SQLException ex) {
             ex.printStackTrace(System.out);
-        }
-        finally{
+        } finally {
             Conexion.close(stmt);
             Conexion.close(conn);
         }
-        
+
         return rows;
     }
-    public Maestros query(Maestros maestro) {    
+
+    public Maestros query(Maestros maestro) {
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -156,7 +161,7 @@ public class MaestroDAO {
                 String telefono_maetro = rs.getString("telefono_maetro");
                 String email_maestro = rs.getString("email_maestro");
                 String estatus_maestro = rs.getString("estatus_maestro");
-                
+
                 maestro = new Maestros();
                 maestro.setCodigo(codigo_maestro);
                 maestro.setNombre(nombre_maestro);

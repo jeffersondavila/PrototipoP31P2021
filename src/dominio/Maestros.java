@@ -17,14 +17,6 @@ public class Maestros {
     private String email;
     private String estatus;
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
     public String getCodigo() {
         return codigo;
     }
@@ -33,12 +25,12 @@ public class Maestros {
         this.codigo = codigo;
     }
 
-    public String getEstatus() {
-        return estatus;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setEstatus(String estatus) {
-        this.estatus = estatus;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getDireccion() {
@@ -64,5 +56,15 @@ public class Maestros {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public String getEstatus() {
+        return estatus;
+    }
+
+    public void setEstatus(String estatus) {
+        this.estatus = estatus;
+    }
+
+    
     
 }

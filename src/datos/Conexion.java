@@ -16,7 +16,7 @@ import java.sql.SQLException;
  */
 public class Conexion {
     
-    private static final String JDBC_URL = "jdbc:mysql://localhost:3307/siu";
+    private static final String JDBC_URL = "jdbc:mysql://localhost:3307/siu2?useSSL=false&serverTimezone=UTC";
     private static final String JDBC_USER = "root";
     private static final String JDBC_PASS = "";
 

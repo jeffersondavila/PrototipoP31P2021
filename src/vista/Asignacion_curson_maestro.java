@@ -50,7 +50,7 @@ public class Asignacion_curson_maestro extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setMaximizable(true);
-        setResizable(true);
+        setTitle("Asignación Maestros");
         setVisible(true);
 
         jButton3.setText("DESASIGNAR");

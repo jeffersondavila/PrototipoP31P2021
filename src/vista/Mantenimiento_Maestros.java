@@ -25,7 +25,7 @@ public class Mantenimiento_Maestros extends javax.swing.JInternalFrame {
     public Mantenimiento_Maestros() {
         initComponents();
         limpio.setVisible(false);
-        modelo1 = new DefaultTableModel();   //ASIGNAMOS UN NUEVO DEFAULTABLEMODEL AL OBJETO MODELO1
+        modelo1 = new DefaultTableModel();
         modelo1.addColumn("CODIGO");
         modelo1.addColumn("NOMBRE");
         modelo1.addColumn("DIRECCION");
@@ -51,8 +51,12 @@ public class Mantenimiento_Maestros extends javax.swing.JInternalFrame {
     public void limpiar() {
         txt_codigo.setText("");
         txt_nombre.setText("");
+        txt_direccion.setText("");
+        txt_telefono.setText("");
+        txt_email.setText("");
         activo.setSelected(false);
         inactivo.setSelected(false);
+        limpio.setSelected(true);
     }
 
     /**
@@ -85,10 +89,12 @@ public class Mantenimiento_Maestros extends javax.swing.JInternalFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         txt_email = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         setClosable(true);
         setMaximizable(true);
         setResizable(true);
+        setTitle("Mantenimiento Maestros");
         setVisible(true);
 
         jLabel4.setText("CODIGO:");
@@ -149,94 +155,110 @@ public class Mantenimiento_Maestros extends javax.swing.JInternalFrame {
 
         jLabel9.setText("EMAIL:");
 
+        jButton1.setText("LIMPIAR");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(46, 46, 46)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(45, 45, 45)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel4))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txt_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txt_nombre)
+                                        .addComponent(txt_direccion))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel9)
+                                    .addComponent(jLabel6))
+                                .addGap(23, 23, 23)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txt_telefono)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(activo)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(inactivo)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(limpio))
+                                            .addComponent(txt_email, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(0, 0, Short.MAX_VALUE)))))
+                        .addGap(31, 31, 31)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addGap(18, 18, 18)
-                                .addComponent(activo)
-                                .addGap(18, 18, 18)
-                                .addComponent(inactivo)
-                                .addGap(18, 18, 18)
-                                .addComponent(limpio))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addComponent(jLabel8)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txt_direccion))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addComponent(jLabel4)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txt_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addComponent(jLabel5)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txt_nombre))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel7)
-                                            .addComponent(jLabel9))
-                                        .addGap(23, 23, 23)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txt_telefono)
-                                            .addComponent(txt_email))))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(btn_modificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btn_buscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(btn_guardar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btn_eliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                            .addComponent(btn_modificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btn_buscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btn_eliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btn_guardar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(79, 79, 79))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane2)
+                        .addGap(46, 46, 46))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(txt_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_buscar)
-                    .addComponent(btn_guardar))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_modificar)
-                    .addComponent(btn_eliminar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(txt_direccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(txt_telefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(txt_email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(activo)
-                        .addComponent(inactivo)
-                        .addComponent(limpio)))
-                .addGap(34, 34, 34)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel4))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txt_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn_buscar)))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txt_direccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8))
+                        .addGap(7, 7, 7)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7)
+                            .addComponent(txt_telefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel9)
+                            .addComponent(txt_email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(17, 17, 17)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(activo)
+                            .addComponent(inactivo)
+                            .addComponent(limpio)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btn_guardar)
+                        .addGap(18, 18, 18)
+                        .addComponent(btn_modificar)
+                        .addGap(18, 18, 18)
+                        .addComponent(btn_eliminar)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton1)))
+                .addGap(28, 28, 28)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         pack();
@@ -249,6 +271,9 @@ public class Mantenimiento_Maestros extends javax.swing.JInternalFrame {
         maestroConsultar.setCodigo(txt_codigo.getText());
         maestroConsultar = sedesDAO.query(maestroConsultar);
         txt_nombre.setText(maestroConsultar.getNombre());
+        txt_direccion.setText(maestroConsultar.getDireccion());
+        txt_telefono.setText(maestroConsultar.getTelefono());
+        txt_email.setText(maestroConsultar.getEmail());
         if ("1".equals(maestroConsultar.getEstatus())) {
             activo.setSelected(true);
         }
@@ -261,19 +286,19 @@ public class Mantenimiento_Maestros extends javax.swing.JInternalFrame {
 
         if (txt_codigo.getText().length() != 0 && txt_nombre.getText().length() != 0 && activo.isSelected() || inactivo.isSelected()) {
             MaestroDAO maestroDAO = new MaestroDAO();
-            Maestros sedeInsertar = new Maestros();
-            sedeInsertar.setCodigo(txt_codigo.getText());
-            sedeInsertar.setNombre(txt_nombre.getText());
-            sedeInsertar.setDireccion(txt_direccion.getText());
-            sedeInsertar.setTelefono(txt_telefono.getText());
-            sedeInsertar.setEmail(txt_email.getText());
+            Maestros maestroInsertar = new Maestros();
+            maestroInsertar.setCodigo(txt_codigo.getText());
+            maestroInsertar.setNombre(txt_nombre.getText());
+            maestroInsertar.setDireccion(txt_direccion.getText());
+            maestroInsertar.setTelefono(txt_telefono.getText());
+            maestroInsertar.setEmail(txt_email.getText());
             if (activo.isSelected()) {
-                sedeInsertar.setEstatus("1");
+                maestroInsertar.setEstatus("1");
             }
             if (inactivo.isSelected()) {
-                sedeInsertar.setEstatus("0");
+                maestroInsertar.setEstatus("0");
             }
-            maestroDAO.insert(sedeInsertar);
+            maestroDAO.insert(maestroInsertar);
             JOptionPane.showMessageDialog(null, "Modulo registrado correctamente");
         }
 
@@ -317,7 +342,7 @@ public class Mantenimiento_Maestros extends javax.swing.JInternalFrame {
         modelo1.addColumn("EMAIL");
         modelo1.addColumn("ESTADO");
         tabla1.setModel(modelo1);
-        String datos[] = new String[3];
+        String datos[] = new String[6];
         MaestroDAO dao = new MaestroDAO();
         List<Maestros> maestros = dao.select();
         for (Maestros maestro : maestros) {
@@ -334,20 +359,20 @@ public class Mantenimiento_Maestros extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btn_eliminarActionPerformed
 
     private void btn_modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_modificarActionPerformed
-        MaestroDAO sedesDAO = new MaestroDAO();
-        Maestros sedeActualizar = new Maestros();
-        sedeActualizar.setCodigo(txt_codigo.getText());
-        sedeActualizar.setNombre(txt_nombre.getText());
-        sedeActualizar.setDireccion(txt_direccion.getText());
-        sedeActualizar.setTelefono(txt_telefono.getText());
-        sedeActualizar.setEmail(txt_email.getText());
+        MaestroDAO maestroDAO = new MaestroDAO();
+        Maestros maestroActualizar = new Maestros();
+        maestroActualizar.setCodigo(txt_codigo.getText());
+        maestroActualizar.setNombre(txt_nombre.getText());
+        maestroActualizar.setDireccion(txt_direccion.getText());
+        maestroActualizar.setTelefono(txt_telefono.getText());
+        maestroActualizar.setEmail(txt_email.getText());
         if (activo.isSelected()) {
-            sedeActualizar.setEstatus("1");
+            maestroActualizar.setEstatus("1");
         }
         if (inactivo.isSelected()) {
-            sedeActualizar.setEstatus("0");
+            maestroActualizar.setEstatus("0");
         }
-        sedesDAO.update(sedeActualizar);
+        maestroDAO.update(maestroActualizar);
         JOptionPane.showMessageDialog(null, "Modulo actualizado correctamente");
 
         /*-----------------------------------------------------------------------------------------------*/
@@ -375,6 +400,11 @@ public class Mantenimiento_Maestros extends javax.swing.JInternalFrame {
         limpiar();
     }//GEN-LAST:event_btn_modificarActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+        limpiar();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup ESTADO;
@@ -384,6 +414,7 @@ public class Mantenimiento_Maestros extends javax.swing.JInternalFrame {
     private javax.swing.JButton btn_guardar;
     private javax.swing.JButton btn_modificar;
     private javax.swing.JRadioButton inactivo;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;

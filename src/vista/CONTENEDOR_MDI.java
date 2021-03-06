@@ -13,7 +13,8 @@ import javax.swing.JDesktopPane;
  */
 public class CONTENEDOR_MDI extends javax.swing.JFrame {
 
-        private Mantenimiento_Maestros formSedes;
+        private Mantenimiento_Maestros formMaestro;
+        private Asignacion_curson_maestro formAsignacionMaestro;
     /**
      * Creates new form CONTENEDOR
      */
@@ -36,6 +37,7 @@ public class CONTENEDOR_MDI extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
         jMenu6 = new javax.swing.JMenu();
@@ -56,9 +58,9 @@ public class CONTENEDOR_MDI extends javax.swing.JFrame {
         jMenu1.setText("CATALOGO");
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("PROCESO");
+        jMenu2.setText("MANTENIMIENTO");
 
-        jMenuItem1.setText("Mantenimiento de Sedes");
+        jMenuItem1.setText("Mantenimiento de Maestros");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
@@ -68,7 +70,16 @@ public class CONTENEDOR_MDI extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu2);
 
-        jMenu3.setText("INFORMES");
+        jMenu3.setText("ASIGNACION");
+
+        jMenuItem2.setText("Asignacion Maestros");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem2);
+
         jMenuBar1.add(jMenu3);
 
         jMenu4.setText("HERRAMIENTAS");
@@ -97,10 +108,16 @@ public class CONTENEDOR_MDI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        formSedes = new Mantenimiento_Maestros();
-        formSedes.setVisible(true);
-        jDesktopPane1.add(formSedes);
+        formMaestro = new Mantenimiento_Maestros();
+        formMaestro.setVisible(true);
+        jDesktopPane1.add(formMaestro);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        formAsignacionMaestro = new Asignacion_curson_maestro();
+        formAsignacionMaestro.setVisible(true);
+        jDesktopPane1.add(formAsignacionMaestro);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -148,5 +165,6 @@ public class CONTENEDOR_MDI extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     // End of variables declaration//GEN-END:variables
 }
